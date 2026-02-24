@@ -163,4 +163,9 @@ public class Program
     }
 
     // check balance
+    public static void CheckBalanceScreen()
+    {
+        System.Console.WriteLine($"Your current balance is {{some_money}}");
+        HomeScreen();
+    }
 }
