@@ -1,3 +1,4 @@
+using BankCli.Models;
 using BankCli.Utils;
 
 namespace BankCli.Screens;
@@ -13,6 +14,15 @@ public static class RegisterScreen{
 
             if (!string.IsNullOrWhiteSpace(password) && password.Equals(confirmPassword))
             {
+                Account account = new()
+                {
+                    Id = Guid.NewGuid(),
+                    AccountName = name!,
+                    Password = password,
+                    DateCreated = DateTime.Now,
+                    Balance = 0.00M
+                };
+                AccountActions.SaveNewAccount(account);
                 Console.WriteLine($"{name}, account created successfully");
                 HomeScreen.Screen();
                 break;
