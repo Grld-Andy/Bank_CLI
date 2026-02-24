@@ -1,5 +1,3 @@
-using BankCli.Utils;
-
 namespace BankCli.Screens;
 
 public static class MainScreen
@@ -22,7 +20,7 @@ public static class MainScreen
                 Environment.Exit(0);
                 break;
             default:
-                Console.WriteLine("Sorry, please try again");
+                ScreenDisplay.ShowError("Sorry, please try again");
                 break;
         }
         

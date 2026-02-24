@@ -1,6 +1,3 @@
-using BankCli.Models;
-using BankCli.Utils;
-
 namespace BankCli.Screens;
 
 public static class ViewDetailsScreen

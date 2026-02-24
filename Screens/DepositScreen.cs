@@ -1,6 +1,3 @@
-using BankCli.Models;
-using BankCli.Utils;
-
 namespace BankCli.Screens;
 
 public static class DepositScreen
@@ -14,7 +11,6 @@ public static class DepositScreen
 
         AccountActions.Deposit(account.AccountName, amount);
 
-        Console.WriteLine($"Deposited {amount} successfully\nUpdated balance {account.Balance}");
-        Console.ReadLine();
+        ScreenDisplay.ShowSuccess($"Deposited {amount} successfully\nUpdated balance {account.Balance}");
     }
 }

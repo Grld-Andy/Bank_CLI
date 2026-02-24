@@ -1,5 +1,3 @@
-using BankCli.Utils;
-
 namespace BankCli.Screens;
 
 public static class LoginScreen
@@ -14,14 +12,12 @@ public static class LoginScreen
 
         if (isSuccess)
         {
-            Console.WriteLine($"Hi {name}, you have logged in successfully");
-            Console.ReadLine();
+            ScreenDisplay.ShowSuccess($"Hi {name}, you have logged in successfully");
             HomeScreen.Screen();
         }
         else
         {
-            Console.WriteLine("Invalid name or password, please try again.");
-            Console.ReadLine();
+            ScreenDisplay.ShowError("Invalid name or password, please try again.");
         }
     }
 }

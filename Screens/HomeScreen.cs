@@ -1,5 +1,3 @@
-using BankCli.Utils;
-
 namespace BankCli.Screens;
 
 public static class HomeScreen
@@ -25,7 +23,7 @@ public static class HomeScreen
                 CurrentAccount.LogoutAccount();
                 return;
             default:
-                Console.WriteLine("Sorry, please try again");
+                ScreenDisplay.ShowError("Sorry, please try again");
                 break;
         }
         Screen();

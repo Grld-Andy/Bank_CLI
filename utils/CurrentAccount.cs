@@ -1,5 +1,3 @@
-using BankCli.Models;
-
 namespace BankCli.Utils;
 
 public static class CurrentAccount

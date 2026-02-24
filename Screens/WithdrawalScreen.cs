@@ -1,7 +1,3 @@
-using System.Runtime;
-using BankCli.Models;
-using BankCli.Utils;
-
 namespace BankCli.Screens;
 
 public static class WithdrawalScreen
@@ -16,8 +12,7 @@ public static class WithdrawalScreen
 
         if(amount > account.Balance)
         {
-            Console.WriteLine($"Transaction denied. Insufficient funds to withdraw {amount}\nYour Balance: {account.Balance}");
-            Console.ReadLine();
+            ScreenDisplay.ShowError($"Transaction denied. Insufficient funds to withdraw {amount}\nYour Balance: {account.Balance}");
             return;
         }
 
@@ -25,19 +20,18 @@ public static class WithdrawalScreen
         {
             ReadInput.GetSafeInt(out int choice, "High-value withdrawal: Please proceed with caution\n1. Continue\n2. Cancel");
             if (choice != 1){
-                Console.WriteLine("Transaction cancelled safely");
+                ScreenDisplay.ShowSuccess("Transaction cancelled safely");
             }
             else
             {
                 AccountActions.Withdraw(account.AccountName, amount);
-                Console.WriteLine($"Withdrawal of {amount} completed successfully.\nYour updated balance is {account.Balance}");
+                ScreenDisplay.ShowSuccess($"Withdrawal of {amount} completed successfully.\nYour updated balance is {account.Balance}");
             }
         }
         else
         {
             AccountActions.Withdraw(account.AccountName, amount);
-            Console.WriteLine($"Withdrawal of {amount} completed successfully.\nYour updated balance is {account.Balance}");
+            ScreenDisplay.ShowSuccess($"Withdrawal of {amount} completed successfully.\nYour updated balance is {account.Balance}");
         }
-        Console.ReadLine();
     }
 }
