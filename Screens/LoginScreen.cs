@@ -10,8 +10,6 @@ public static class LoginScreen
         ReadInput.GetSafeString(out string? password, "Please enter your password");
         var isSuccess = AccountActions.LoginAccount(name!, password!);
 
-        System.Console.WriteLine("done");
-
         if (isSuccess)
         {
             Console.WriteLine($"Hi {name}, you have logged in successfully");

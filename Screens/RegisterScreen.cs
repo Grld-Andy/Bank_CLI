@@ -12,7 +12,7 @@ public static class RegisterScreen{
             ReadInput.GetSafeString(out string? password, "Please enter a new password");
             ReadInput.GetSafeString(out string? confirmPassword, "Please repeat password to confirm");
 
-            if (!string.IsNullOrWhiteSpace(password) && password.Equals(confirmPassword))
+            if (!string.IsNullOrWhiteSpace(password) && !string.IsNullOrWhiteSpace(confirmPassword) && password.Equals(confirmPassword))
             {
                 Account account = new()
                 {
@@ -37,7 +37,7 @@ public static class RegisterScreen{
             }
             else
             {
-                Console.WriteLine("Please enter matching passwords to proceed.");
+                Console.WriteLine("\nPlease enter matching passwords to proceed.");
             }
         }
 

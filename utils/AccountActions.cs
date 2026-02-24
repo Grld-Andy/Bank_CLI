@@ -91,8 +91,10 @@ public class AccountActions
             return false;
         }
 
-        File.AppendAllText(BankDatabasePath, $"{account.Id}, {account.AccountName}, {account.Password}, {account.Balance}, {account.DateCreated}");
+        File.AppendAllText(BankDatabasePath, $"\n{account.Id}, {account.AccountName}, {account.Password}, {account.Balance}, {account.DateCreated}");
+        
         Accounts.Add(account);
+        CurrentAccount.LoginAccount(account);
         return true;
     }
 
@@ -102,7 +104,7 @@ public class AccountActions
         sr.WriteLine("Id, Name, Password, Balance, Date_Created");
         foreach(var account in Accounts)
         {
-            sr.WriteLine($"{account.Id}, {account.AccountName}, {account.Password}, {account.Balance}, {account.DateCreated}");
+            sr.WriteLine($"\n{account.Id}, {account.AccountName}, {account.Password}, {account.Balance}, {account.DateCreated}");
         }
     }
 }

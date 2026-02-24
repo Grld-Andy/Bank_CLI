@@ -24,10 +24,16 @@ public static class ReadInput
 
     public static void GetSafeString(out string? result, string propmt)
     {
-        do
+        try{
+            do
+            {
+                Console.WriteLine(propmt);
+                result = Console.ReadLine();
+            }while(string.IsNullOrWhiteSpace(result));
+        }
+        catch (Exception)
         {
-            Console.WriteLine(propmt);
-            result = Console.ReadLine();
-        }while(string.IsNullOrWhiteSpace(result));
+            result = "";
+        }
     }
 }
