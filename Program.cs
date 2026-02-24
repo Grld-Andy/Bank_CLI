@@ -110,8 +110,51 @@ public class Program
     }
 
     // withdraw
+    public static void WithdrawalScreen()
+    {
+        decimal amount;
+        string? amountString;
+        do
+        {
+            System.Console.WriteLine("How much would you like to withdraw");
+            amountString = Console.ReadLine();
+        }while(decimal.TryParse(amountString, out amount));
+
+        if(amount > 5000)
+        {
+            System.Console.WriteLine("High-value withdrawal: Please proceed with caution\n1. Continue\n2. Cancel");
+            string? choiceString;
+            int choice;
+            do
+            {
+                System.Console.WriteLine("How much would you like to withdraw");
+                choiceString = Console.ReadLine();
+            }while(int.TryParse(choiceString, out choice));
+
+            if (choice != 1){
+                System.Console.WriteLine("Transaction cancelled safely");
+            }
+
+            System.Console.WriteLine($"Withdrew {amount} successfully\nUpdated balance {{some_amount}}");
+        }
+
+        HomeScreen();
+    }
 
     // deposit
+    public static void DepositScreen()
+    {
+        decimal amount;
+        string? amountString;
+        do
+        {
+            System.Console.WriteLine("How much would you like to deposit");
+            amountString = Console.ReadLine();
+        }while(decimal.TryParse(amountString, out amount));
+
+        System.Console.WriteLine($"Deposited {amount} successfully\nUpdated balance {{some_amount}}");
+        HomeScreen();
+    }
 
     // check balance
 }
