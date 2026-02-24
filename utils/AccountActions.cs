@@ -1,5 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
-using System.Xml.Serialization;
 using BankCli.Models;
 
 namespace BankCli.Utils;
@@ -36,6 +34,7 @@ public class AccountActions
         Account account = GetAccount(name);
         account.Balance -= amount;
         UpdateDatabase();
+        CurrentAccount.Withdraw(amount);
     }
 
     public static void Deposit(string name, decimal amount)
@@ -43,6 +42,7 @@ public class AccountActions
         Account account = GetAccount(name);
         account.Balance += amount;
         UpdateDatabase();
+        CurrentAccount.Deposit(amount);
     }
 
     // file operations
