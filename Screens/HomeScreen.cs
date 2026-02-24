@@ -6,6 +6,8 @@ public static class HomeScreen
 {
     public static void Screen()
     {
+        ScreenDisplay.ShowTitle("home");
+        
         Console.WriteLine($"Your current username {CurrentAccount.MyAccount?.AccountName}");
         ReadInput.GetSafeInt(out int choice, $"Welcome {CurrentAccount.MyAccount!.AccountName}, what would you like to do?\n Please enter a number\n\n1. Withdraw\n2. Deposit\n3. View Account Details\n4. Logout");
 

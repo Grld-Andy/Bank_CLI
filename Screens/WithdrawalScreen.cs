@@ -8,6 +8,8 @@ public static class WithdrawalScreen
 {
     public static void Screen()
     {
+        ScreenDisplay.ShowTitle("withdraw");
+        
         Account account = CurrentAccount.MyAccount!;
 
         ReadInput.GetSafeDecimal(out decimal amount, "How much would you like to withdraw");
@@ -30,8 +32,10 @@ public static class WithdrawalScreen
                 Console.WriteLine($"Withdrawal of {amount} completed successfully.\nYour updated balance is {account.Balance}");
             }
         }
-        
-        AccountActions.Withdraw(account.AccountName, amount);
-        Console.WriteLine($"Withdrawal of {amount} completed successfully.\nYour updated balance is {account.Balance}");
+        else
+        {
+            AccountActions.Withdraw(account.AccountName, amount);
+            Console.WriteLine($"Withdrawal of {amount} completed successfully.\nYour updated balance is {account.Balance}");
+        }
     }
 }

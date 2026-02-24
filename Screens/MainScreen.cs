@@ -6,7 +6,9 @@ public static class MainScreen
 {
     public static void Screen()
     {
-        ReadInput.GetSafeInt(out int choice, "\nWelcome, what would you like to do?\nPlease enter a number\n1. Create account\n2. Login to account\n3. Quit");
+        ScreenDisplay.ShowTitle("welcome");
+
+        ReadInput.GetSafeInt(out int choice, "What would you like to do?\nPlease enter a number\n1. Create account\n2. Login to account\n3. Quit");
 
         switch (choice)
         {

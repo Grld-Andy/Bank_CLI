@@ -6,6 +6,8 @@ namespace BankCli.Screens;
 public static class RegisterScreen{
     public static void Screen()
     {
+        ScreenDisplay.ShowTitle("register");
+        
         ReadInput.GetSafeString(out string? name, "Please enter your username");
         
         while(true){

@@ -18,12 +18,12 @@ public static class CurrentAccount
 
     public static void Withdraw(decimal amount)
     {
-        MyAccount?.Balance -= amount;
+        // MyAccount?.Balance -= amount;
     }
 
     public static void Deposit(decimal amount)
     {
-        MyAccount?.Balance += amount;
+        // MyAccount?.Balance += amount;
     }
     
 }
