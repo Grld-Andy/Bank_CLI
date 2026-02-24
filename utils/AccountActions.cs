@@ -51,6 +51,7 @@ public class AccountActions
         CreateDbIfNotExists();
 
         using StreamReader sr = new(BankDatabasePath);
+        sr.ReadLine();
         while(sr.Peek() >= 0)
         {
             string? line = sr.ReadLine();
@@ -79,6 +80,7 @@ public class AccountActions
         {
             var fileInfo = new FileInfo(BankDatabasePath);
             fileInfo.Create().Close();
+            File.WriteAllText(BankDatabasePath, "Id, Name, Password, Balance, Date_Created");
         }
     }
 

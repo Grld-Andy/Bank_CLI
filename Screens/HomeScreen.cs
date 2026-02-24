@@ -6,7 +6,7 @@ public static class HomeScreen
 {
     public static void Screen()
     {
-        ReadInput.GetSafeInt(out int choice, $"Welcome {CurrentAccount.MyAccount!.AccountName}, what would you like to do?\n Please enter a number\n\n1. Withdraw\n2. Deposit\n3. View Balance\n4. Logout");
+        ReadInput.GetSafeInt(out int choice, $"Welcome {CurrentAccount.MyAccount!.AccountName}, what would you like to do?\n Please enter a number\n\n1. Withdraw\n2. Deposit\n3. View Account Details\n4. Logout");
 
         switch (choice)
         {
@@ -17,7 +17,7 @@ public static class HomeScreen
                 DepositScreen.Screen();
                 break;
             case 3:
-                CheckBalanceScreen.Screen();
+                ViewDetailsScreen.Screen();
                 break;
             case 4:
                 CurrentAccount.LogoutAccount();
