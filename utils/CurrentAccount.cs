@@ -11,5 +11,9 @@ public static class CurrentAccount
         MyAccount = account;
     }
 
+    public static void LogoutAccount()
+    {
+        MyAccount = null;
+    }
     
 }

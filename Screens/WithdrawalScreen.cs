@@ -1,4 +1,5 @@
 using System.Runtime;
+using BankCli.Models;
 using BankCli.Utils;
 
 namespace BankCli.Screens;
@@ -7,8 +8,11 @@ public static class WithdrawalScreen
 {
     public static void Screen()
     {
+        Account account = CurrentAccount.MyAccount!;
+
         ReadInput.GetSafeDecimal(out decimal amount, "How much would you like to withdraw");
 
+        
         if(amount > 5000)
         {
             ReadInput.GetSafeInt(out int choice, "High-value withdrawal: Please proceed with caution\n1. Continue\n2. Cancel");

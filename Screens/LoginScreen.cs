@@ -15,5 +15,9 @@ public static class LoginScreen
             Console.WriteLine($"Hi {name}, you have logged in successfully");
             HomeScreen.Screen();
         }
+        else
+        {
+            Console.WriteLine("Invalid name or password, please try again.");
+        }
     }
 }
