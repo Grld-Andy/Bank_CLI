@@ -37,7 +37,14 @@ public class AccountActions
         account.Balance -= amount;
         UpdateDatabase();
     }
-    
+
+    public static void Deposit(string name, decimal amount)
+    {
+        Account account = GetAccount(name);
+        account.Balance += amount;
+        UpdateDatabase();
+    }
+
     // file operations
 
     public static void LoadAccounts()
