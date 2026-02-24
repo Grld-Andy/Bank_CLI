@@ -2,14 +2,22 @@ namespace BankCli.Utils;
 
 public static class ReadInput
 {
-    public static int GetSafeInt(out int choice)
+    public static void GetSafeInt(out int choice, string prompt)
     {
         string? choiceString;
         do
         {
-            Console.WriteLine("Welcome, what would you like to do?\n Please enter a number\n\n1. Create account\n2. Login to account\n3. Quit");
+            Console.WriteLine(prompt);
             choiceString = Console.ReadLine();
         }while(int.TryParse(choiceString, out choice));
-        return choice;
+    }
+
+    public static void GetSafeString(out string? name, string propmt)
+    {
+        do
+        {
+            Console.WriteLine(propmt);
+            name = Console.ReadLine();
+        }while(!string.IsNullOrWhiteSpace(name));
     }
 }

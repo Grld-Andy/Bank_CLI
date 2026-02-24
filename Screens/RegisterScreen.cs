@@ -1,30 +1,15 @@
+using BankCli.Utils;
+
 namespace BankCli.Screens;
 
 public static class RegisterScreen{
     public static void Screen()
     {
-        string? name;
-        do
-        {
-            System.Console.WriteLine("Please enter your username");
-            name = Console.ReadLine();
-        }while(!string.IsNullOrWhiteSpace(name));
-
+        ReadInput.GetSafeString(out string? name, "Please enter your username");
         
         while(true){
-            string? password;
-            do
-            {
-                System.Console.WriteLine("Please enter a new password");
-                password = Console.ReadLine();
-            }while(!string.IsNullOrWhiteSpace(password));
-
-            string? confirmPassword;
-            do
-            {
-                System.Console.WriteLine("Please repeat password to confirm");
-                confirmPassword = Console.ReadLine();
-            }while(!string.IsNullOrWhiteSpace(confirmPassword));
+            ReadInput.GetSafeString(out string? password, "Please enter a new password");
+            ReadInput.GetSafeString(out string? confirmPassword, "Please repeat password to confirm");
 
             if (!string.IsNullOrWhiteSpace(password) && password.Equals(confirmPassword))
             {
@@ -32,6 +17,6 @@ public static class RegisterScreen{
             }
         }
 
-        System.Console.WriteLine($"{name}, account created successfully");
+        Console.WriteLine($"{name}, account created successfully");
     }
 }
