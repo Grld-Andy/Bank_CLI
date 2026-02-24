@@ -8,8 +8,12 @@ public static class LoginScreen
     {
         ReadInput.GetSafeString(out string? name, "Please enter your username");
         ReadInput.GetSafeString(out string? password, "Please enter your password");
+        var isSuccess = AccountActions.LoginAccount(name!, password!);
 
-        Console.WriteLine($"{name} logged in successfully");
-        HomeScreen.Screen();
+        if (isSuccess)
+        {
+            Console.WriteLine($"Hi {name}, you have logged in successfully");
+            HomeScreen.Screen();
+        }
     }
 }

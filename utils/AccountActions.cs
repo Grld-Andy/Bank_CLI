@@ -2,7 +2,7 @@ using BankCli.Models;
 
 namespace BankCli.Utils;
 
-public static class AccountActions
+public class AccountActions
 {
     private static readonly string BankDatabasePath = "../Database/FileDb.csv";
     public static readonly List<Account> Accounts = [];
@@ -17,6 +17,20 @@ public static class AccountActions
 
         File.AppendAllText(BankDatabasePath, $"{account.Id}, {account.AccountName}, {account.Password}, {account.Balance}, {account.DateCreated}");
         Accounts.Add(account);
+        return true;
+    }
+
+    public static bool LoginAccount(string name, string password)
+    {
+        var account = Accounts
+            .FirstOrDefault(a => a.AccountName == name && a.Password == password);
+        
+        if(account is null)
+        {
+            return false;
+        }
+
+        CurrentAccount.LoginAccount(account);
         return true;
     }
 
