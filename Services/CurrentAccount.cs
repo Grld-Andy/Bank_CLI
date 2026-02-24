@@ -1,4 +1,4 @@
-namespace BankCli.Utils;
+namespace BankCli.Services;
 
 public static class CurrentAccount
 {

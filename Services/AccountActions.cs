@@ -1,4 +1,4 @@
-namespace BankCli.Utils;
+namespace BankCli.Services;
 
 public class AccountActions
 {
@@ -73,6 +73,7 @@ public class AccountActions
     {
         if (!File.Exists(BankDatabasePath))
         {
+            Directory.CreateDirectory("./Database");
             var fileInfo = new FileInfo(BankDatabasePath);
             fileInfo.Create().Close();
             File.WriteAllText(BankDatabasePath, "Id, Name, Password, Balance, Date_Created");
