@@ -21,11 +21,11 @@ public static class HomeScreen
                 break;
             case 4:
                 CurrentAccount.LogoutAccount();
-                break;
+                return;
             default:
                 Console.WriteLine("Sorry, please try again");
-                Screen();
                 break;
         }
+        Screen();
     }
 }
