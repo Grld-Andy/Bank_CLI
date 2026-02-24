@@ -1,21 +1,23 @@
+using BankCli.Utils;
+
 namespace BankCli.Screens;
 
 public static class MainScreen
 {
     public static void Screen()
     {
-        int choice;
-        string? choiceString;
-        do
-        {
-            Console.WriteLine("Welcome, what would you like to do?\n Please enter a number\n\n1. Create account\n2. Login to account\n3. Quit");
-            choiceString = Console.ReadLine();
-        }while(int.TryParse(choiceString, out choice));
+        ReadInput.GetSafeInt(out int choice);
 
         switch (choice)
         {
             case 1:
-                Console.WriteLine("hello");
+                RegisterScreen.Screen();
+                break;
+            case 2:
+                LoginScreen.Screen();
+                break;
+            case 3:
+                Environment.Exit(0);
                 break;
             default:
                 Console.WriteLine("Sorry, please try again");
