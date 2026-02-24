@@ -4,9 +4,8 @@ namespace BankCli.Utils;
 
 public class AccountActions
 {
-    private static readonly string BankDatabasePath = "../Database/FileDb.csv";
+    private static readonly string BankDatabasePath = "./Database/FileDb.csv";
     public static readonly List<Account> Accounts = [];
-
 
     private static Account GetAccount(string name)
     {

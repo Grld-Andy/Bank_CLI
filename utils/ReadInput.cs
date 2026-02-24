@@ -9,7 +9,7 @@ public static class ReadInput
         {
             Console.WriteLine(prompt);
             resultString = Console.ReadLine();
-        }while(int.TryParse(resultString, out result));
+        }while(!int.TryParse(resultString, out result));
     }
 
     public static void GetSafeDecimal(out decimal result, string prompt)
@@ -19,7 +19,7 @@ public static class ReadInput
         {
             Console.WriteLine(prompt);
             resultString = Console.ReadLine();
-        }while(decimal.TryParse(resultString, out result));
+        }while(!decimal.TryParse(resultString, out result));
     }
 
     public static void GetSafeString(out string? result, string propmt)
@@ -28,6 +28,6 @@ public static class ReadInput
         {
             Console.WriteLine(propmt);
             result = Console.ReadLine();
-        }while(!string.IsNullOrWhiteSpace(result));
+        }while(string.IsNullOrWhiteSpace(result));
     }
 }
