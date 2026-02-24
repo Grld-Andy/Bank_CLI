@@ -28,20 +28,22 @@ public static class RegisterScreen{
                 var accountCreated = AccountActions.SaveNewAccount(account);
                 
                 if(accountCreated){
-                    Console.WriteLine($"{name}, account created successfully");
+                    Console.WriteLine($"{name}, account created successfully. Press enter to continue.");
+                    Console.ReadLine();
                     HomeScreen.Screen();
                 }
                 else
                 {
                     Console.WriteLine($"An account with the username: {name} already exists.\nPlease try again.");
+                    Console.ReadLine();
                 }
                 break;
             }
             else
             {
                 Console.WriteLine("\nPlease enter matching passwords to proceed.");
+                Console.ReadLine();
             }
         }
-
     }
 }

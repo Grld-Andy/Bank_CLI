@@ -15,11 +15,13 @@ public static class LoginScreen
         if (isSuccess)
         {
             Console.WriteLine($"Hi {name}, you have logged in successfully");
+            Console.ReadLine();
             HomeScreen.Screen();
         }
         else
         {
             Console.WriteLine("Invalid name or password, please try again.");
+            Console.ReadLine();
         }
     }
 }

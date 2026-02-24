@@ -17,6 +17,7 @@ public static class WithdrawalScreen
         if(amount > account.Balance)
         {
             Console.WriteLine($"Transaction denied. Insufficient funds to withdraw {amount}\nYour Balance: {account.Balance}");
+            Console.ReadLine();
             return;
         }
 
@@ -37,5 +38,6 @@ public static class WithdrawalScreen
             AccountActions.Withdraw(account.AccountName, amount);
             Console.WriteLine($"Withdrawal of {amount} completed successfully.\nYour updated balance is {account.Balance}");
         }
+        Console.ReadLine();
     }
 }

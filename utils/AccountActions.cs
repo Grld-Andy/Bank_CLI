@@ -31,17 +31,15 @@ public class AccountActions
     public static void Withdraw(string name, decimal amount)
     {
         Account account = GetAccount(name);
-        account.Balance -= amount;
+        account.Balance -= Math.Round(amount, 2);
         UpdateDatabase();
-        CurrentAccount.Withdraw(amount);
     }
 
     public static void Deposit(string name, decimal amount)
     {
         Account account = GetAccount(name);
-        account.Balance += amount;
+        account.Balance += Math.Round(amount, 2);
         UpdateDatabase();
-        CurrentAccount.Deposit(amount);
     }
 
     // file operations
@@ -104,7 +102,7 @@ public class AccountActions
         sr.WriteLine("Id, Name, Password, Balance, Date_Created");
         foreach(var account in Accounts)
         {
-            sr.WriteLine($"\n{account.Id}, {account.AccountName}, {account.Password}, {account.Balance}, {account.DateCreated}");
+            sr.WriteLine($"{account.Id}, {account.AccountName}, {account.Password}, {account.Balance}, {account.DateCreated}");
         }
     }
 }

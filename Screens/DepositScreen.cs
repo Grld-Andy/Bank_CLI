@@ -15,6 +15,6 @@ public static class DepositScreen
         AccountActions.Deposit(account.AccountName, amount);
 
         Console.WriteLine($"Deposited {amount} successfully\nUpdated balance {account.Balance}");
-        HomeScreen.Screen();
+        Console.ReadLine();
     }
 }
