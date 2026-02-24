@@ -62,7 +62,28 @@ public class Program
             }
         }
 
-        System.Console.WriteLine($"{name} Account Created Successfully");
+        System.Console.WriteLine($"{name}, account created successfully");
+    }
+
+    // login screen
+    public static void LoginScreen()
+    {
+        string? name;
+        do
+        {
+            System.Console.WriteLine("Please enter your username");
+            name = Console.ReadLine();
+        }while(!string.IsNullOrWhiteSpace(name));
+
+        
+        string? password;
+        do
+        {
+            System.Console.WriteLine("Please enter your password");
+            password = Console.ReadLine();
+        }while(!string.IsNullOrWhiteSpace(password));
+
+        System.Console.WriteLine($"{name} logged in successfully");
     }
 
     // withdraw
