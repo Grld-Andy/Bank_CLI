@@ -7,14 +7,23 @@ public static class AccountActions
     private static readonly string BankDatabasePath = "../Database/FileDb.csv";
     public static readonly List<Account> Accounts = [];
 
-    public static void SaveNewAccount(Account account)
+    public static bool SaveNewAccount(Account account)
     {
+        var user = Accounts.FirstOrDefault(a => a.AccountName == account.AccountName);
+        if(user is not null)
+        {
+            return false;
+        }
+
         File.AppendAllText(BankDatabasePath, $"{account.Id}, {account.AccountName}, {account.Password}, {account.Balance}, {account.DateCreated}");
-        LoadAccounts();
+        Accounts.Add(account);
+        return true;
     }
 
     public static void LoadAccounts()
     {
+        CreateDbIfNotExists();
+
         using StreamReader sr = new(BankDatabasePath);
         while(sr.Peek() >= 0)
         {
@@ -35,6 +44,15 @@ public static class AccountActions
             };
 
             Accounts.Add(account);
+        }
+    }
+
+    private static void CreateDbIfNotExists()
+    {
+        if (!File.Exists(BankDatabasePath))
+        {
+            var fileInfo = new FileInfo(BankDatabasePath);
+            fileInfo.Create().Close();
         }
     }
 }

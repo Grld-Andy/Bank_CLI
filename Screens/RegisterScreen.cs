@@ -22,14 +22,22 @@ public static class RegisterScreen{
                     DateCreated = DateTime.Now,
                     Balance = 0.00M
                 };
-                AccountActions.SaveNewAccount(account);
-                Console.WriteLine($"{name}, account created successfully");
-                HomeScreen.Screen();
+
+                var accountCreated = AccountActions.SaveNewAccount(account);
+                
+                if(accountCreated){
+                    Console.WriteLine($"{name}, account created successfully");
+                    HomeScreen.Screen();
+                }
+                else
+                {
+                    Console.WriteLine($"An account with the username: {name} already exists.\nPlease try again.");
+                }
                 break;
             }
             else
             {
-                Console.WriteLine("An error occured, please try again");
+                Console.WriteLine("Please enter matching passwords to proceed.");
             }
         }
 
