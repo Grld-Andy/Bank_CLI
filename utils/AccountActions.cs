@@ -46,7 +46,6 @@ public class AccountActions
     }
 
     // file operations
-
     public static void LoadAccounts()
     {
         CreateDbIfNotExists();
