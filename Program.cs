@@ -4,11 +4,11 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Screen1();
+        MainScreen();
     }
 
     // main interface
-    public static void Screen1()
+    public static void MainScreen()
     {
         int choice;
         string? choiceString;
@@ -25,7 +25,7 @@ public class Program
                 break;
             default:
                 System.Console.WriteLine("Sorry, please try again");
-                Screen1();
+                MainScreen();
                 break;
         }
     }
@@ -100,7 +100,13 @@ public class Program
         switch (choice)
         {
             case 1:
-                System.Console.WriteLine("hello");
+                WithdrawalScreen();
+                break;
+            case 2:
+                DepositScreen();
+                break;
+            case 3:
+                MainScreen();
                 break;
             default:
                 System.Console.WriteLine("Sorry, please try again");
