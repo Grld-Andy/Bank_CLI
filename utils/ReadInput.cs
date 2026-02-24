@@ -2,22 +2,32 @@ namespace BankCli.Utils;
 
 public static class ReadInput
 {
-    public static void GetSafeInt(out int choice, string prompt)
+    public static void GetSafeInt(out int result, string prompt)
     {
-        string? choiceString;
+        string? resultString;
         do
         {
             Console.WriteLine(prompt);
-            choiceString = Console.ReadLine();
-        }while(int.TryParse(choiceString, out choice));
+            resultString = Console.ReadLine();
+        }while(int.TryParse(resultString, out result));
     }
 
-    public static void GetSafeString(out string? name, string propmt)
+    public static void GetSafeDecimal(out decimal result, string prompt)
+    {
+        string? resultString;
+        do
+        {
+            Console.WriteLine(prompt);
+            resultString = Console.ReadLine();
+        }while(decimal.TryParse(resultString, out result));
+    }
+
+    public static void GetSafeString(out string? result, string propmt)
     {
         do
         {
             Console.WriteLine(propmt);
-            name = Console.ReadLine();
-        }while(!string.IsNullOrWhiteSpace(name));
+            result = Console.ReadLine();
+        }while(!string.IsNullOrWhiteSpace(result));
     }
 }

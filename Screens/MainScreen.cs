@@ -21,8 +21,9 @@ public static class MainScreen
                 break;
             default:
                 Console.WriteLine("Sorry, please try again");
-                Screen();
                 break;
         }
+        
+        Screen();
     }
 }

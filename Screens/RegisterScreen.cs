@@ -13,10 +13,15 @@ public static class RegisterScreen{
 
             if (!string.IsNullOrWhiteSpace(password) && password.Equals(confirmPassword))
             {
+                Console.WriteLine($"{name}, account created successfully");
+                HomeScreen.Screen();
                 break;
+            }
+            else
+            {
+                Console.WriteLine("An error occured, please try again");
             }
         }
 
-        Console.WriteLine($"{name}, account created successfully");
     }
 }
